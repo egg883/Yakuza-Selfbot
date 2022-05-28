@@ -1,0 +1,1 @@
+This selfbot is under heavy development it will be free for all and logger free with a nice 0.2MS nitro sniper!
