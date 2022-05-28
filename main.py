@@ -254,7 +254,7 @@ async def help(ctx):
         ```
         """
     typingprint(Colours.Magenta+"[Command] <>Help Panel<>"+Colours.White)
-    await ctx.send(msg,delete_after=config['deletetime'])
+    await ctx.send(msg)
 
 
 def Init():
