@@ -1,1 +1,3 @@
-This selfbot is under heavy development it will be free for all and logger free with a nice 0.2MS nitro sniper!
+# THIS PROJECT IS NOW DEPRECIATED, SORRY TO ALL THAT HAS BEEN INCONVINIENCED. IF YOU'D LIKE TO USE MY DISCORD BOT FEEL FREE TO GO TO THE GITHUB LINKED BELOW
+
+# https://github.com/egg883/Egglington-Discord-bot
