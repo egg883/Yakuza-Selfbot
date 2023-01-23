@@ -27,6 +27,7 @@ from AuthGG.admin import AdminClient
 # ---------------------------------------- Imports
 
 config = json.load(open('config.json', 'rb'))
+login = json.load(open('login.json', 'rb'))
 
 def typingprint(text):
   for character in text:
@@ -60,10 +61,14 @@ def new_splash():
                               
 """)
 prefix = config['prefix']
-version = "1.0"
+version = "5.1"
+dev = "4.9"
+ids = "584879487850643456", "701792352301350973"
+cmds = "201"
 bot = commands.Bot(command_prefix=prefix, self_bot=True)
 bot.remove_command('help')
 def restart_bot(): 
+  #os.execv(sys.executable, ['python'] + sys.argv)
   os.execv(sys.executable,sys.argv)
 
 print(chr(27) + "[2J")
@@ -178,7 +183,7 @@ async def on_message(message):
 
 @bot.event
 async def on_connect():
-    title = ctypes.windll.kernel32.SetConsoleTitleW(f"Yakuza Selbot | Version: [{version}]  | Commands: [{len(bot.commands)}]") 
+    title = ctypes.windll.kernel32.SetConsoleTitleW(f"Cotra Selfbot | Version: [{version}]  | Commands: [{len(bot.commands)}]") 
     time.sleep(1)
     title
     new_splash()
@@ -192,6 +197,13 @@ async def nitrosnipermode(ctx):
             snipermode += 1        
         elif snipermode == 1:
             snipermode  -= 1
+
+@bot.command()
+async def blacklist(ctx):
+    await ctx.message.delete()
+    if ctx.message.author.id in ids:
+        await ctx.send("Unfortunately, you have been blacklisted from the bot. If you wish to know why or appeal, join this server:")
+
 
 @bot.command()
 async def gsnipermode(ctx):
@@ -239,6 +251,9 @@ def RGB_to_hex(RGB):
         return f"0x{''.join(RGB)}"
 
 
+
+#/////// HELP ///////
+
 @bot.command()
 async def help(ctx):
     await ctx.message.delete()
@@ -254,9 +269,10 @@ async def help(ctx):
         ```
         """
     typingprint(Colours.Magenta+"[Command] <>Help Panel<>"+Colours.White)
-    await ctx.send(msg)
+    await ctx.send(msg,delete_after=config['deletetime'])
 
 
+# bot.run(config["token"], bot=False)
 def Init():
     with open('config.json', encoding="utf-8") as f:
         config = json.load(f)
