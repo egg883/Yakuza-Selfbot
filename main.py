@@ -22,12 +22,9 @@ from gtts import gTTS
 from pypresence import Presence
 import requests, wmi
 import os
-from AuthGG.client import Client
-from AuthGG.admin import AdminClient
 # ---------------------------------------- Imports
 
 config = json.load(open('config.json', 'rb'))
-login = json.load(open('login.json', 'rb'))
 
 def typingprint(text):
   for character in text:
@@ -61,10 +58,8 @@ def new_splash():
                               
 """)
 prefix = config['prefix']
-version = "5.1"
-dev = "4.9"
+version = "1.0"
 ids = "584879487850643456", "701792352301350973"
-cmds = "201"
 bot = commands.Bot(command_prefix=prefix, self_bot=True)
 bot.remove_command('help')
 def restart_bot(): 
@@ -183,7 +178,7 @@ async def on_message(message):
 
 @bot.event
 async def on_connect():
-    title = ctypes.windll.kernel32.SetConsoleTitleW(f"Cotra Selfbot | Version: [{version}]  | Commands: [{len(bot.commands)}]") 
+    title = ctypes.windll.kernel32.SetConsoleTitleW(f"Yakuza Selfbot | Version: [{version}]  | Commands: [{len(bot.commands)}]") 
     time.sleep(1)
     title
     new_splash()
